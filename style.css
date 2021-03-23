@@ -1,0 +1,260 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Lato';
+    position: relative;
+    height: 100vh;
+    background: linear-gradient(to bottom, rgb(5, 133, 105) 20%, rgb(226, 218, 218) 20%);
+}
+
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    min-width: 800px;
+    height: 95%;
+    background-color: white;
+}
+
+
+/* navigazione e profilo utente*/
+.navigation {
+    border: 1px solid lightgrey;
+    border-left: 1px solid lightgrey;
+    float: left;
+    width: 30%;
+    height: 100%;
+    background-color: white;
+}
+
+.user {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 10%;
+    background-color: rgb(230, 230, 230);
+}
+
+.userstuff {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    height: 100%;
+    width: 60%;
+}
+.useritems {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+    width: 100px;
+}
+.useritems i {
+    cursor: pointer;
+    font-size: 20px;
+    color: rgb(173, 173, 173)
+}
+
+.useravatar {
+    width: 30%;
+    height: 100%;
+}
+.useravatar img {
+    width: 70%;
+    border-radius: 50%;
+    margin: 15%;
+}
+.userstuff h3 {
+    font-size: 15px;
+}
+
+.notifies {
+    display: flex;
+    justify-content: start;
+    width: 100%;
+    height: 10%;
+    background-color: lightblue;
+}
+.notifiesbell {
+    height: 100%;
+    width: 20%;
+}
+.circlebell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20% 20%;
+    height: 60%;
+    width: 60%;
+    background-color: white;
+    border-radius: 50%;
+}
+.circlebell i {
+    font-size: 20px;
+    color: lightblue;
+}
+.notifiesstuff {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.notifiesstuff a{
+    font-size: 15px;
+    color:rgb(173, 173, 173);
+}
+
+.search {
+    width: 100%;
+    height: 5%;
+    padding: 4px;
+    background-color: rgb(230, 230, 230);
+}
+.search button {
+    float: left;
+    height: 100%;
+    border: none;
+    width: 20%;
+    background-color: white;
+    color: rgb(187, 187, 187);
+}
+.search input {
+    padding: 5px;
+    font-size: 10px;
+    float: left;
+    border: none;
+    width: 80%;
+    height: 100%;
+}
+
+.contacts {
+    overflow-y: auto;
+    height: 75%;
+    width: 100%;
+}
+
+.contacts ul li {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    height: 10%;
+    width: 100%;
+    border-bottom: 1px solid lightgrey;
+}
+
+.contactsname {
+    padding: 10px 0;
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
+}
+.contactsname p {
+    font-size: 20px;
+}
+.contacts .useravatar img {
+    width: 50%;
+    margin: 10%;
+}
+
+
+/* messaggistica */
+.messanger {
+    border: 1px solid lightgrey;
+    display: flex;
+    flex-direction: column;
+    float: left;
+    width: 70%;
+    height: 100%;
+}
+
+.contactsmessanger {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 10%;
+    background-color: rgb(230, 230, 230);
+}
+.messaging {
+    overflow-y: auto;
+    padding: 50px;
+    width: 100%;
+    height: 80%;
+    background-image: url(img/mine.jpg);
+}
+.contactsinteraction {
+    display: flex;
+    width: 100%;
+    height: 10%;
+    padding: 10px;
+    background-color: rgb(230, 230, 230);
+}
+
+.contactscm {
+    display: flex;
+    justify-content: start;
+    height: 100%;
+    width: 25%;
+}
+
+.contactscminfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+}
+
+.contactscminfo p {
+    font-size: 15px;
+    color: rgb(173, 173, 173);
+}
+
+.cistuff {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 10%;
+    background-color: rgb(230, 230, 230);
+}
+.cistuff i {
+    cursor: pointer;
+    font-size: 30px;
+}
+.contactsinteraction input {
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    width: 80%;
+    height: 100%;
+}
+
+.message { 
+    width: 100%;
+}
+.messagecloud {
+    border-radius: 10px;
+    margin: 10px 0;
+    width: 30%;
+    background-color: rgb(172, 255, 172);
+}
+.messagecloud.fr {
+    float: right;
+}
+.messagecloud.fl {
+    float: left;
+}
+
+.messagetext {
+    padding: 3%;
+}
+.date {
+    color: rgb(185, 170, 170);
+    font-size: 10px;
+    padding: 1px 10px;
+    float: right;
+}

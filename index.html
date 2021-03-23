@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <title>Boolzap</title>
+</head>
+<body>
+    <div id='root' class="container">
+        <!-- info utente e contatti -->
+        <div class="navigation">
+            <div class="user">
+                <div class="userstuff">
+                    <div class="useravatar">
+                        <img src="img/avatar_io.jpg" alt="">
+                    </div>
+                    <h3>Nome Utente</h3>
+                </div>
+                <div class="useritems">
+                    <i class="fas fa-circle-notch"></i>
+                    <i class="far fa-comment-alt"></i>
+                    <i class="fas fa-ellipsis-v"></i>
+                </div>
+            </div>
+            <div class="notifies">
+                <div class="notifiesbell">
+                    <div class="circlebell">
+                        <i class="fas fa-bell-slash"></i>                    </div>
+                </div>
+                <div class="notifiesstuff">
+                    <h5>Ricevi notifiche di nuovi messsaggi</h5>
+                    <a href="">Attiva notifiche</a>
+                </div>
+            </div>
+            <div class="search">
+                <button><i class="fas fa-search"></i></button>
+                <input placeholder="Cerca o inizia una nuova chat" type="text">
+            </div>
+            <div class="contacts">
+                <ul>
+                    <li>                    
+                        <div class="useravatar">
+                            <img src="img/avatar_io.jpg" alt="">
+                        </div>
+                        <div class="contactsname">
+                            <p>efwf</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- messaggistica -->
+        <div class="messanger">
+            <div class="contactsmessanger">
+                <div class="contactscm">
+                    <div class="useravatar">
+                        <img src="img/avatar_io.jpg" alt="">
+                    </div>
+                    <div class="contactscminfo">
+                        <h3>cdssd</h3>
+                        <p>Ultimo accesso alle</p>
+                    </div>
+                </div>
+                <div class="useritems">
+                    <i class="fas fa-search"></i>
+                    <i class="fas fa-paperclip"></i>
+                    <i class="fas fa-ellipsis-v"></i>
+                </div>
+            </div>
+            <div class="messaging">
+                <div class="message">
+                    <div :class class="messagecloud fr">
+                        <div class="messagetext">
+                            <p>dhuwhuid</p>
+                        </div>
+                        <div class="date">weefwfe</div>
+                    </div>
+                </div>
+            </div>
+            <div class="contactsinteraction">
+                <div class="cistuff">
+                    <i class="far fa-smile"></i>
+                </div>
+                <input placeholder="Scrivi un messaggio" type="text">
+                <div class="cistuff">
+                    <i class="fas fa-microphone"></i>                
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>

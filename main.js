@@ -64,12 +64,12 @@ var app = new Vue({
                     },
                     {
                         date: '28/03/2020 10:20:10',
-                        text: 'Sicuro di non aver sbagliato chat?',
+                        text: 'E allora ne approfittiamo ;D',
                         status: 'sent'
                     },
                     {
                         date: '28/03/2020 16:15:22',
-                        text: 'Ah scusa!',
+                        text: 'Ovvio ;)',
                         status: 'received'
                     }
                 ],
@@ -91,6 +91,74 @@ var app = new Vue({
                     }
                 ],
             },
+            {
+                name: 'Orazio',
+                avatar: 'img/avatar_5.jpg', 
+                visible: true,
+                messages: [
+                    {
+                        date: '10/01/2020 16:33:40',
+                        text: 'Stasera ci si diverte, ho trovato la scusa perfetta per liberarmi. Luisa non lo scoprira\' mai',
+                        status: 'received'
+                    },
+                    {
+                        date: '10/01/2020 16:34:00',
+                        text: 'Ti aspetto <3',
+                        status: 'sent'
+                    }
+                ],
+            },
+            {
+                name: 'Luisa',
+                avatar: 'img/avatar_6.jpg', 
+                visible: true,
+                messages: [
+                    {
+                        date: '12/01/2020 16:36:17',
+                        text: 'Sono la moglie di Orazio, smettila di andare a letto con lui!',
+                        status: 'received'
+                    },
+                    {
+                        date: '12/01/2020 16:38:02',
+                        text: 'No.',
+                        status: 'sent'
+                    }
+                ],
+            },
+            {
+                name: 'Sempre Orazio',
+                avatar: 'img/avatar_5.jpg', 
+                visible: true,
+                messages: [
+                    {
+                        date: '12/01/2020 18:10:35',
+                        text: 'Sono sempre io, Luisa mi ha distrutto il telefono... e la macchina. Ci vediamo la prossima settimana?',
+                        status: 'received'
+                    },
+                    {
+                        date: '12/01/2020 19:59:40',
+                        text: 'Quando vuoi <3',
+                        status: 'sent'
+                    }
+                ],
+            },
+            {
+                name: 'Marcello',
+                avatar: 'img/avatar_8.jpg', 
+                visible: true,
+                messages: [
+                    {
+                        date: '17/01/2020 18:30:21',
+                        text: 'Marcello!',
+                        status: 'sent'
+                    },
+                    {
+                        date: '17/01/2020 19:54:00',
+                        text: 'Che c\'e\'?',
+                        status: 'received'
+                    }
+                ],
+            }
         ]
     },
 
@@ -173,12 +241,35 @@ var app = new Vue({
         canc: function(indice) {
             
             if(this.contacts[this.ind].messages.length == 1) {
-                alert('Cancellando completamente la chat, il contatto verra\' rimosso dalla lista contatti.');
-                this.contacts.splice(this.ind, 1);
+                alert('Hai cancellato tutta la chat.');
+
+                if (this.contacts.length == 1) {
+                    this.lastentry = '';
+                    this.lasttext = '';        
+                    time = new Date().toLocaleTimeString();
+                    date = new Date().toLocaleDateString();    
+                    this.contacts.push({
+                        name: 'Whatsapp Assistant',
+                        avatar: 'img/avatar_io.jpg', 
+                        visible: true,
+                        messages: [
+                            {
+                                date: `${date} ${time}`,
+                                text: 'Ciao! Avvia una nuova chat',
+                                status: 'received'
+                            }
+                        ],
+                    });
+                }
+
+                this.contacts.splice(this.ind, 1); 
             } else {
                 this.contacts[this.ind].messages.splice(indice, 1);
             }
 
+            if (this.ind == this.contacts.length) {
+                this.ind--
+            }
         }
     },
 

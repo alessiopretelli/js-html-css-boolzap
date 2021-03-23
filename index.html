@@ -20,7 +20,7 @@
                     <div class="useravatar">
                         <img src="img/avatar_io.jpg" alt="">
                     </div>
-                    <h3>Nome Utente</h3>
+                    <h3>Marzia</h3>
                 </div>
                 <div class="useritems">
                     <i class="fas fa-circle-notch"></i>
@@ -72,7 +72,7 @@
                     </div>
                     <div class="contactscminfo">
                         <h3>{{contacts[ind].name}}</h3>
-                        <p v-if="(lastentry == 'Online') + (lastentry == 'Sta scrivendo...')">{{lastentry}}</p>
+                        <p v-if="(lastentry == 'Online') + (lastentry == 'Sta scrivendo...') + (!lastentry)">{{lastentry}}</p>
                         <p v-else>Ultimo accesso: {{lastentry}}</p>
                     </div>
                 </div>

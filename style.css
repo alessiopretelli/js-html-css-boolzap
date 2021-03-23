@@ -146,6 +146,12 @@ body {
     width: 100%;
     border-bottom: 1px solid lightgrey;
 }
+.contacts ul li:hover {
+    background-color: rgb(230, 230, 230);
+}
+.contacts ul li.grey {
+    background-color: rgb(230, 230, 230);
+}
 
 .contactsname {
     padding: 10px 0;
@@ -238,14 +244,16 @@ body {
 }
 .messagecloud {
     border-radius: 10px;
-    margin: 10px 0;
-    width: 30%;
-    background-color: rgb(172, 255, 172);
+    width: 40%;
 }
 .messagecloud.fr {
+    background-color: rgb(172, 255, 172);
+    margin: 10px 0 10px 75%;
     float: right;
 }
 .messagecloud.fl {
+    margin: 10px 75% 10px 0;
+    background-color: white;
     float: left;
 }
 

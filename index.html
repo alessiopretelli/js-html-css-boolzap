@@ -12,6 +12,7 @@
 </head>
 <body>
     <div id='root' class="container">
+
         <!-- info utente e contatti -->
         <div class="navigation">
             <div class="user">
@@ -43,12 +44,12 @@
             </div>
             <div class="contacts">
                 <ul>
-                    <li>                    
+                    <li :class="(index == ind) ? 'grey' : null" @click="chats(index)" v-for="(element, index) in contacts">                    
                         <div class="useravatar">
-                            <img src="img/avatar_io.jpg" alt="">
+                            <img :src='element.avatar' alt="">
                         </div>
                         <div class="contactsname">
-                            <p>efwf</p>
+                            <p>{{element.name}}</p>
                         </div>
                     </li>
                 </ul>
@@ -60,10 +61,10 @@
             <div class="contactsmessanger">
                 <div class="contactscm">
                     <div class="useravatar">
-                        <img src="img/avatar_io.jpg" alt="">
+                        <img :src="contacts[ind].avatar" alt="">
                     </div>
                     <div class="contactscminfo">
-                        <h3>cdssd</h3>
+                        <h3>{{contacts[ind].name}}</h3>
                         <p>Ultimo accesso alle</p>
                     </div>
                 </div>
@@ -75,11 +76,11 @@
             </div>
             <div class="messaging">
                 <div class="message">
-                    <div :class class="messagecloud fr">
+                    <div :class="(message.status == 'sent') ? 'fr' : 'fl'" v-for="message in contacts[ind].messages" class="messagecloud">
                         <div class="messagetext">
-                            <p>dhuwhuid</p>
+                            <p>{{message.text}}</p>
                         </div>
-                        <div class="date">weefwfe</div>
+                        <div class="date">{{message.date}}</div>
                     </div>
                 </div>
             </div>

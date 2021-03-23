@@ -2,6 +2,11 @@ var app = new Vue({
     el: '#root',
     data: {
         ind: 0,
+        searchcontact: '',
+        sending: '',
+        clicked: -1,
+        lastentry: '',
+        lasttext: '',
         contacts: [
             {
                 name: 'Michele',
@@ -91,11 +96,96 @@ var app = new Vue({
 
     methods: {
         chats: function(index) {
+            this.clicked = -1;
             this.ind = 0;
             this.ind = index;
-            console.log(index);
-            console.log(this.ind);
-            console.log(this.contacts[this.ind].name);
+            this.lastentry = '';
+            this.lastentry = this.contacts[this.ind].messages[this.contacts[this.ind].messages.length - 1].date;
+        },
+        send: function() {
+            var time = new Date().toLocaleTimeString();
+            var date = new Date().toLocaleDateString();
+
+            if (this.sending == 0) {
+                return;
+            }
+
+            this.contacts[this.ind].messages.push({
+                date: `${date} ${time}`,
+                text: this.sending,
+                status: 'sent'
+            });
+
+            this.sending = '';
+
+            setTimeout(() => {
+                this.lastentry = 'Online';
+            }, 2000);
+
+            setTimeout(() => {
+                this.lastentry = 'Sta scrivendo...';
+            }, 3500);
+
+            setTimeout(() => {
+                time = new Date().toLocaleTimeString();
+                date = new Date().toLocaleDateString();
+                this.contacts[this.ind].messages.push({
+                    date: `${date} ${time}`,
+                    text: 'Ok',
+                    status: 'received'
+                });
+                this.lastentry = '';
+                this.lastentry = this.contacts[this.ind].messages[this.contacts[this.ind].messages.length - 1].date;        
+            }, 5000);
+        },
+        inspect: function() {
+            this.searchcontact = this.searchcontact.charAt(0).toUpperCase() + this.searchcontact.slice(1);
+            console.log(this.searchcontact);
+
+            for (var key in this.contacts) {
+                this.contacts[key].visible = true;
+            }
+
+            for (i = 0; i < this.searchcontact.length; i++) {
+
+                for (var key in this.contacts) {
+
+                    if(this.contacts[key].name[i] != this.searchcontact[i]) {
+                        this.contacts[key].visible = false;
+                    }
+    
+                }
+
+            }
+
+            this.searchcontact = '';
+        },
+        infomessage: function(indice) {
+            console.log(indice);
+
+            if (this.clicked == indice) {
+                this.clicked = -1;
+            } else {
+                this.clicked = indice;
+            }
+
+        },
+        canc: function(indice) {
+            
+            if(this.contacts[this.ind].messages.length == 1) {
+                alert('Cancellando completamente la chat, il contatto verra\' rimosso dalla lista contatti.');
+                this.contacts.splice(this.ind, 1);
+            } else {
+                this.contacts[this.ind].messages.splice(indice, 1);
+            }
+
         }
+    },
+
+    created: function() {
+            this.lastentry = '';
+            this.lasttext = '';
+            this.lastentry = this.contacts[this.ind].messages[this.contacts[this.ind].messages.length - 1].date;
+            this.lasttext = this.contacts[this.ind].messages[this.contacts[this.ind].messages.length - 1].text;            
     }
 });

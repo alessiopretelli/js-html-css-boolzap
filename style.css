@@ -17,7 +17,7 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     width: 80%;
-    min-width: 800px;
+    min-width: 1024px;
     height: 95%;
     background-color: white;
 }
@@ -152,12 +152,14 @@ body {
 .contacts ul li.grey {
     background-color: rgb(230, 230, 230);
 }
+.contacts ul li.none {
+    display: none;
+}    
+
 
 .contactsname {
-    padding: 10px 0;
-    display: flex;
-    flex-direction: column;
-    align-self: flex-start;
+    width: 70%;
+    padding: 10px 5px 10px 0;
 }
 .contactsname p {
     font-size: 20px;
@@ -165,6 +167,23 @@ body {
 .contacts .useravatar img {
     width: 50%;
     margin: 10%;
+}
+
+.infolastmessage p {
+    float: left;
+    width: 30%;
+    height: 40px;
+    overflow: hidden;
+    font-size: 15px;
+    color: rgb(173, 173, 173);
+}
+.infolastmessage p:last-child {
+    text-align: end;
+    float: left;
+    width: 70%;
+    font-size: 10px;
+    line-height: 60px;
+    overflow: unset;
 }
 
 
@@ -243,6 +262,7 @@ body {
     width: 100%;
 }
 .messagecloud {
+    position: relative;
     border-radius: 10px;
     width: 40%;
 }
@@ -260,9 +280,36 @@ body {
 .messagetext {
     padding: 3%;
 }
+
 .date {
     color: rgb(185, 170, 170);
     font-size: 10px;
     padding: 1px 10px;
     float: right;
+}
+
+.messageinfo {
+    display: none;
+    position: absolute;
+    border-radius: 5px;
+    box-shadow: 1px 1px rgb(124, 124, 124);
+    border: 1px solid lightgrey;
+    width: 40%;
+    z-index: 1;
+    bottom: -50px;
+    left: 0;
+    background-color: white;
+}
+.messageinfo.active {
+    display: block;
+}
+.messageinfo li {
+    text-align: center;
+    cursor: pointer;
+    list-style: none;
+    margin: 10px 0;
+    font-size: 15px;
+}
+.messageinfo li:hover {
+    background-color: rgb(230, 230, 230);
 }

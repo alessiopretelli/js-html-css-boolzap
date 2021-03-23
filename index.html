@@ -39,17 +39,24 @@
                 </div>
             </div>
             <div class="search">
-                <button><i class="fas fa-search"></i></button>
-                <input placeholder="Cerca o inizia una nuova chat" type="text">
+                <button @click='inspect'><i class="fas fa-search"></i></button>
+                <input v-model='searchcontact' placeholder="Cerca o inizia una nuova chat" type="text">
             </div>
             <div class="contacts">
                 <ul>
-                    <li :class="(index == ind) ? 'grey' : null" @click="chats(index)" v-for="(element, index) in contacts">                    
+                    <li :class= "(element.visible == false) ? 'none' : null + (index == ind) ? 'grey' : null" @click="chats(index)" v-for="(element, index) in contacts">                    
                         <div class="useravatar">
                             <img :src='element.avatar' alt="">
                         </div>
                         <div class="contactsname">
                             <p>{{element.name}}</p>
+                            <div class="infolastmessage">
+                                <p>
+                                    <i v-if="element.messages[element.messages.length - 1].status == 'sent'" class="fas fa-check-double"></i>
+                                    {{element.messages[element.messages.length - 1].text}}
+                                </p>
+                                <p>{{element.messages[element.messages.length - 1].date}}</p>
+                            </div>
                         </div>
                     </li>
                 </ul>
@@ -65,7 +72,8 @@
                     </div>
                     <div class="contactscminfo">
                         <h3>{{contacts[ind].name}}</h3>
-                        <p>Ultimo accesso alle</p>
+                        <p v-if="(lastentry == 'Online') + (lastentry == 'Sta scrivendo...')">{{lastentry}}</p>
+                        <p v-else>Ultimo accesso: {{lastentry}}</p>
                     </div>
                 </div>
                 <div class="useritems">
@@ -76,11 +84,17 @@
             </div>
             <div class="messaging">
                 <div class="message">
-                    <div :class="(message.status == 'sent') ? 'fr' : 'fl'" v-for="message in contacts[ind].messages" class="messagecloud">
+                    <div @click="infomessage(indice)" :class="(message.status == 'sent') ? 'fr' : 'fl'" v-for="(message, indice) in contacts[ind].messages" class="messagecloud">
                         <div class="messagetext">
                             <p>{{message.text}}</p>
                         </div>
                         <div class="date">{{message.date}}</div>
+                        <div :class="(indice == clicked) ? 'active' : null" class="messageinfo">
+                            <ul>
+                                <li>Message info</li>
+                                <li @click='canc(indice)'>Delete message</li>
+                            </ul>
+                        </div>    
                     </div>
                 </div>
             </div>
@@ -88,7 +102,7 @@
                 <div class="cistuff">
                     <i class="far fa-smile"></i>
                 </div>
-                <input placeholder="Scrivi un messaggio" type="text">
+                <input @keyUp.enter='send' v-model='sending' placeholder="Scrivi un messaggio" type="text">
                 <div class="cistuff">
                     <i class="fas fa-microphone"></i>                
                 </div>

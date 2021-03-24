@@ -278,13 +278,15 @@ body {
 }
 
 .messagetext {
+    word-wrap: break-word;
     padding: 3%;
 }
 
 .date {
     color: rgb(185, 170, 170);
     font-size: 10px;
-    padding: 1px 10px;
+    margin: 5px 0;
+    padding: 0 10px;
     float: right;
 }
 
@@ -312,4 +314,39 @@ body {
 }
 .messageinfo li:hover {
     background-color: rgb(230, 230, 230);
+}
+
+.messagedetails {
+    position: relative;
+    text-align: center;
+    padding: 30px;
+    overflow-y: auto;
+    word-wrap: break-word;
+    background-color: white;
+    box-shadow: 1px 1px rgb(124, 124, 124);
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+    height: 150px;
+    width: 200px;
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.messagedetails.none {
+    display: none;
+}
+.messagedetails.block {
+    display: block;
+}
+.messagedetails.auto {
+    height: auto;
+}
+.messagedetails i {
+    color: rgb(173, 173, 173);
+    position: absolute;
+    font-size: 20px;
+    top: 10px;
+    left: 10px;
 }

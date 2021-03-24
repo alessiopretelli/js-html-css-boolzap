@@ -7,6 +7,8 @@ var app = new Vue({
         clicked: -1,
         lastentry: '',
         lasttext: '',
+        mdbn: 'none',
+        details: '',
         contacts: [
             {
                 name: 'Michele',
@@ -229,7 +231,6 @@ var app = new Vue({
             this.searchcontact = '';
         },
         infomessage: function(indice) {
-            console.log(indice);
 
             if (this.clicked == indice) {
                 this.clicked = -1;
@@ -241,7 +242,9 @@ var app = new Vue({
         canc: function(indice) {
             
             if(this.contacts[this.ind].messages.length == 1) {
-                alert('Hai cancellato tutta la chat.');
+                this.details = '';
+                this.details = 'Hai cancellato questa chat.';
+                this.mdbn = 'block auto';
 
                 if (this.contacts.length == 1) {
                     this.lastentry = '';
@@ -249,7 +252,7 @@ var app = new Vue({
                     time = new Date().toLocaleTimeString();
                     date = new Date().toLocaleDateString();    
                     this.contacts.push({
-                        name: 'Whatsapp Assistant',
+                        name: 'Boolzapp Assistant',
                         avatar: 'img/avatar_io.jpg', 
                         visible: true,
                         messages: [
@@ -270,6 +273,14 @@ var app = new Vue({
             if (this.ind == this.contacts.length) {
                 this.ind--
             }
+        },
+        messagedetails: function(indi) {
+            this.details = '';
+            this.details = this.contacts[this.ind].messages[indi];
+            this.mdbn = 'block';
+        },
+        closewindow: function() {
+            this.mdbn = 'none';
         }
     },
 

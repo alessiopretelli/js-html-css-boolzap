@@ -91,7 +91,7 @@
                         <div class="date">{{message.date}}</div>
                         <div :class="(indice == clicked) ? 'active' : null" class="messageinfo">
                             <ul>
-                                <li>Message info</li>
+                                <li @click='messagedetails(indice)'>Message info</li>
                                 <li @click='canc(indice)'>Delete message</li>
                             </ul>
                         </div>    
@@ -107,6 +107,10 @@
                     <i class="fas fa-microphone"></i>                
                 </div>
             </div>
+        </div>
+        <div :class='mdbn' class="messagedetails">
+            <i @click='closewindow' class="fas fa-window-close"></i>
+            {{details}}
         </div>
     </div>
 

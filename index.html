@@ -84,19 +84,22 @@
             </div>
             <div class="messaging">
                 <div class="message">
-                    <div @click="infomessage(indice)" :class="(message.status == 'sent') ? 'fr' : 'fl'" v-for="(message, indice) in contacts[ind].messages" class="messagecloud">
+                    <div :class="(message.status == 'sent') ? 'fr' : 'fl'" v-for="(message, indice) in contacts[ind].messages" class="messagecloud">
                         <div class="messagetext">
                             <p>{{message.text}}</p>
                         </div>
+                        <i id="chev" @click="infomessage(indice)" class="fas fa-chevron-down"></i>
                         <div class="date">{{message.date}}</div>
                         <div :class="(indice == clicked) ? 'active' : null" class="messageinfo">
                             <ul>
+                                <li @click='removeinfo'><i style='color: rgb(173, 173, 173); margin: 0 5px; cursor: pointer;' class="fas fa-window-close"></i>Chiudi</li>
                                 <li @click='messagedetails(indice)'>Message info</li>
                                 <li @click='canc(indice)'>Delete message</li>
                             </ul>
                         </div>    
                     </div>
                 </div>
+                <hr id="last" style='opacity: 0;'>
             </div>
             <div class="contactsinteraction">
                 <div class="cistuff">

@@ -205,8 +205,11 @@ var app = new Vue({
                     status: 'received'
                 });
                 this.lastentry = '';
-                this.lastentry = this.contacts[this.ind].messages[this.contacts[this.ind].messages.length - 1].date;        
+                this.lastentry = this.contacts[this.ind].messages[this.contacts[this.ind].messages.length - 1].date;
+                scrolling();
             }, 5000);
+
+            scrolling();
         },
         inspect: function() {
             this.searchcontact = this.searchcontact.charAt(0).toUpperCase() + this.searchcontact.slice(1);
@@ -238,6 +241,9 @@ var app = new Vue({
                 this.clicked = indice;
             }
 
+        },
+        removeinfo: function() {
+            this.clicked = -1;
         },
         canc: function(indice) {
             
@@ -273,6 +279,8 @@ var app = new Vue({
             if (this.ind == this.contacts.length) {
                 this.ind--
             }
+
+            this.clicked = -1;
         },
         messagedetails: function(indi) {
             this.details = '';
@@ -291,3 +299,9 @@ var app = new Vue({
             this.lasttext = this.contacts[this.ind].messages[this.contacts[this.ind].messages.length - 1].text;            
     }
 });
+
+function scrolling() {
+    var scroller = document.getElementById('last');
+    scroller.scrollIntoView(false);
+    return;
+}

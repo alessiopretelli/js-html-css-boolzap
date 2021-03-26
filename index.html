@@ -46,7 +46,7 @@
                 <ul>
                     <li :class= "(element.visible == false) ? 'none' : null + (index == ind) ? 'grey' : null" @click="chats(index)" v-for="(element, index) in contacts">                    
                         <div class="useravatar">
-                            <img :src='element.avatar' alt="">
+                            <img :src="'img/avatar' + element.avatar + '.jpg'" alt="">
                         </div>
                         <div class="contactsname">
                             <p>{{element.name}}</p>
@@ -68,7 +68,7 @@
             <div class="contactsmessanger">
                 <div class="contactscm">
                     <div class="useravatar">
-                        <img :src="contacts[ind].avatar" alt="">
+                        <img :src="'img/avatar' + contacts[ind].avatar + '.jpg'" alt="">
                     </div>
                     <div class="contactscminfo">
                         <h3>{{contacts[ind].name}}</h3>

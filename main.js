@@ -12,7 +12,7 @@ var app = new Vue({
         contacts: [
             {
                 name: 'Michele',
-                avatar: 'img/avatar_1.jpg',
+                avatar: '_1',
                 visible: true,
                 messages: [
                     {
@@ -34,7 +34,7 @@ var app = new Vue({
             },
             {
                 name: 'Fabio',
-                avatar: 'img/avatar_2.jpg',
+                avatar: '_2',
                 visible: true,
                 messages: [
                     {
@@ -56,7 +56,7 @@ var app = new Vue({
             },
             {
                 name: 'Samuele',
-                avatar: 'img/avatar_3.jpg',
+                avatar: '_3',
                 visible: true,
                 messages: [
                     {
@@ -78,7 +78,7 @@ var app = new Vue({
             },
             {
                 name: 'Marco',
-                avatar: 'img/avatar_4.jpg', 
+                avatar: '_4', 
                 visible: true,
                 messages: [
                     {
@@ -95,7 +95,7 @@ var app = new Vue({
             },
             {
                 name: 'Orazio',
-                avatar: 'img/avatar_5.jpg', 
+                avatar: '_5', 
                 visible: true,
                 messages: [
                     {
@@ -112,7 +112,7 @@ var app = new Vue({
             },
             {
                 name: 'Luisa',
-                avatar: 'img/avatar_6.jpg', 
+                avatar: '_6', 
                 visible: true,
                 messages: [
                     {
@@ -129,7 +129,7 @@ var app = new Vue({
             },
             {
                 name: 'Sempre Orazio',
-                avatar: 'img/avatar_5.jpg', 
+                avatar: '_5', 
                 visible: true,
                 messages: [
                     {
@@ -146,7 +146,7 @@ var app = new Vue({
             },
             {
                 name: 'Marcello',
-                avatar: 'img/avatar_8.jpg', 
+                avatar: '_8', 
                 visible: true,
                 messages: [
                     {

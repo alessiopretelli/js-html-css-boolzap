@@ -206,10 +206,17 @@ var app = new Vue({
                 });
                 this.lastentry = '';
                 this.lastentry = this.contacts[this.ind].messages[this.contacts[this.ind].messages.length - 1].date;
-                scrolling();
+                
+                this.$nextTick(function() {
+                    scrolling();
+                });
+
             }, 5000);
 
-            scrolling();
+            this.$nextTick(function() {
+                scrolling();
+            });
+
         },
         inspect: function() {
             this.searchcontact = this.searchcontact.charAt(0).toUpperCase() + this.searchcontact.slice(1);
